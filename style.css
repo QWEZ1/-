@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.quiz-container {
+    background-color: rgb(119, 79, 194)
+}
+
+.title {
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium';
+    width: 70px;
+    height: 35px;
+    align-items: center;
+    border-color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(119, 79, 194)
+}
+
+button:active {
+    background-color: rgb(84, 0, 139);
+}
+
+.question {
+    color: white;
+    font-family: 'Franklin Gothic Medium';
+    display: flex;
+    justify-content: center;
+}
+
+.result {
+    color: white;
+    font-family: 'Franklin Gothic Medium';
+    display: flex;
+    justify-content: center;
+}
