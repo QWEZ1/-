@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Тестик</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="quiz-container">
+                <h1 class="title">Проверка усвоенного материала</h1>
+                <div class="question" id="question">
+                </div>
+                <div class="options" id="options">
+                <!--<button onclick="nextQuestion('JavaScript')">JavaScript</button>
+                    <button onclick="nextQuestion('Python')">Python</button>
+                    <button onclick="nextQuestion('Java')">Java</button>
+                    <button onclick="nextQuestion('C++')">C++</button>-->
+                </div>
+                <div class="result" id="result">
+            </div>
+        </div>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            html,
+            body {
+                height: 100%;
+            }
+
+            .quiz-container {
+                background-color: rgb(119, 79, 194)
+            }
+
+            .title {
+                font-family: 'Franklin Gothic Medium';
+                color: rgb(255, 255, 255);
+                display: flex;
+                justify-content: center;
+            }
+
+            .wrapper {
+                min-height: 100%;
+            }
+
+            .options {
+                display: flex;
+                justify-content: center;
+            }
+
+            button {
+                background-color: rgb(255, 255, 255);
+                color: #000000;
+                display: flex;
+                justify-content: center;
+                font-family: 'Franklin Gothic Medium';
+                width: 70px;
+                height: 35px;
+                align-items: center;
+                border-color: white;
+                border: none;
+            }
+
+            button:hover {
+                background-color: rgb(119, 79, 194)
+            }
+
+            button:active {
+                background-color: rgb(84, 0, 139);
+            }
+
+            .question {
+                color: white;
+                font-family: 'Franklin Gothic Medium';
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <script>
+        let questions = [
+        {
+        question: "Какой язык программирования вы изучаете?",
+        options: ["JS", "Python", "Java", "C++"],
+        correctAnswer: "JS"
+        },
+        {
+        question: "Самый лучшый язык?",
+        options: ["JS", "Python", "Java", "C++"],
+        correctAnswer: "JS"
+        },
+        {
+        question: "Какой язык программирования вы изучаете?",
+        options: ["JS", "Python", "Java", "C++"],
+        correctAnswer: "JS"
+        },
+        ];
+
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        // функция для отображения вопроса с ответами
+        function displayQuestion() {
+        let questionElement = document.getElementById("question");
+        questionElement.textContent = `Вопрос ${currentQuestion+1}: ${questions[currentQuestion].question}`
+        let optionsElement = document.getElementById("options");
+        //очистка
+        optionsElement.innerHTML = "";
+        //масив ответов
+        let optionsArray = questions[currentQuestion].options;
+        //создаём кнопки с ответами и привязываем к ним функцию nextquestion
+        optionsArray.forEach((option)=>{
+            let button = document.createElement('button');
+            optionsElement.append(button);
+            button.textContent = option;
+        })
+        // при клике на блок с кнопками:
+        optionsElement.addEventListener('click', (event)=> {
+        // получаем переменную кнопку на которую кликнули
+            let target = event.target;
+        // вызовем функцию проверки ответа и перехода к следующему вопросу
+        }, { once: true })
+        }
+
+        // функция для перехода к следующему вопросу
+        function nextQuestion(answer) {
+        // если переданный ответ = корректному, то 
+            if(answer === questions[currentQuestion].correctAnswer) {
+        // Увеличиваем на единицу кол-во верных ответов
+                correctAnswers++;
+        }
+
+        currentQuestion++; // переход к следующему вопросу
+        if(currentQuestion < questions.length) { // если № текущего вопроса меньше кол-ва вопросов то отображаем следующий вопрос
+            displayQuestion();
+        } else {
+            // иначе отобразить результат теста
+           displayResult()
+        }
+        }
+
+    // функция отображения результата теста
+    function displayResult() {
+        const questionElement = document.getElementById("question"); //блок с вопросом
+        const optionsElement = document.getElementById("options"); //Блок с вариантоми ответов
+        const result = document.getElementById("result"); // блок для отображения результата
+        questionElement.style.display = 'none'
+        optionsElement.style.display = 'none'
+        resultElement.textContent = `Правильных ответов: ${correctAnswers} из ${questions.length}`;
+    }
+
+    displayQuestion();
+        </script>
+    </body>
+</html>
