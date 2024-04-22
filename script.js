@@ -14,6 +14,21 @@ let questions = [
     options: ["7", "3", "4", "5"],
     correctAnswer: "5"
     },
+    {
+    question: "Сасиска в...?",
+    options: ["печке", "тесте", "ловаше", "рулете"],
+    correctAnswer: "тесте"
+    },
+    {
+    question: "какого цвета вода?",
+    options: ["белого", "серого", "чёрного", "прозрачная"],
+    correctAnswer: "прозрачная"
+    },
+    {
+    question: "сколько метров в километре?",
+    options: ["10", "100", "1000", "10000"],
+    correctAnswer: "1000"
+    },
     ];
 
     let currentQuestion = 0;
@@ -59,22 +74,27 @@ let questions = [
     }
 }
 
-let username = document.getElementById("name").value
-
-let bal = 2
-
-if(correctAnswers > 1);
-    bal++
-    if(correctAnswers > 2);
-        bal++
 // функция отображения результата теста
 function displayResult() {
+    let username = document.getElementById("name").value
+    let scores = 2;
+    if(correctAnswers == 3) {scores = scores + 1;}  
+    if(correctAnswers == 4) {scores = scores + 1;}
+    if(correctAnswers == 5) {scores = scores + 2;}
+    if(correctAnswers == 6) {scores = scores + 3;}
+    let procent = 0;
+    if(correctAnswers == 1) {procent = procent + 16.6}
+    if(correctAnswers == 2) {procent = procent + 33.2}
+    if(correctAnswers == 3) {procent = procent + 50}
+    if(correctAnswers == 4) {procent = procent + 66.6}
+    if(correctAnswers == 5) {procent = procent + 83.3}
+    if(correctAnswers == 6) {procent = procent + 100}
     const questionElement = document.getElementById("question"); //блок с вопросом
     const optionsElement = document.getElementById("options"); //Блок с вариантоми ответов
     const resultElement = document.getElementById("result"); // блок для отображения результата
     questionElement.style.display = 'none'
     optionsElement.style.display = 'none'
-    resultElement.textContent = `${username.value} правильных ответов: ${correctAnswers} из ${questions.length} оценка ${bal} (оценки 5 к сожалению нету)`;
+    resultElement.textContent = `${username}, правильных ответов: ${correctAnswers}, (${procent}%) из ${questions.length}, оценка ${scores}`;
 }
 
 

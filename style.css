@@ -65,3 +65,15 @@ button:active {
     display: flex;
     justify-content: center;
 }
+
+.uname {
+    font-size: 44px;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium';
+}
+
+.name {
+    width: 400px;
+    height: 50px;
+    font-size: 33px;
+}
